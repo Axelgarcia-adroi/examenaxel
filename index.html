@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sistema de Gestión de Ventas</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url("./imagenes2/fondo4.jpg") no-repeat center center/cover;
+    }
+
+    .container {
+      width: 420px;
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      border-radius: 10px;
+      padding: 30px 40px;
+    }
+
+    .imagen-circular {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+    }
+
+    #Acceder {
+      padding: 0.75rem;
+      background: #0c2d42;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+
+    #Acceder:hover {
+      box-shadow: 0 0 35px #02364A;
+      cursor: pointer;
+    }
+
+    .coment:hover {
+      box-shadow: 0 0 35px #02364A;
+    }
+  </style>
+
+  <script>
+    function borrar() {
+      document.getElementById('nombre').value = "";
+      document.getElementById('usuario').value = "";
+      document.getElementById('pass').value = "";
+    }
+
+    function togglePassword() {
+      const passwordInput = document.getElementById("pass");
+      passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <center><img src="./Unknown-1.png" alt="Logo" class="imagen-circular"></center>
+    <center><h2>Sistema Gestión de Ventas</h2></center>
+    <form action="validar.php" method="post">
+      <input type="text" class="coment" id="nombre" name="nombre" placeholder="Ingresa nombre">
+      <input type="text" class="coment" id="usuario" name="usuario" placeholder="Usuario" required>
+      <input type="password" class="coment" id="pass" name="password" placeholder="Contraseña" required>
+
+      <label>
+        <input type="checkbox" onclick="togglePassword()"> Mostrar contraseña
+      </label><br>
+
+      <input type="submit" id="Acceder" value="Acceder">
+      <input type="button" value="Borrar" onclick="borrar()">
+    </form>
+  </div>
+</body>
+</html>
